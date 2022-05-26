@@ -8,12 +8,14 @@ class textReg extends Model
 {
 
     protected $fillable = [
-        'Libellée',
-        'Thème',
-        'SousThème',
-        'N°BO',
-        'Texte',
-        'Fichedaudit',
-        'Fichedelecture',
+
+        'theme',
+        'sousTheme',
+        'libellee',
+        'datedecreation',
+        'n°bo',
+        'texte',
+        'fichedaudit',
+        'fichedelecture',
       ];
 }

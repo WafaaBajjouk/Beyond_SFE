@@ -4,11 +4,13 @@ namespace App\Imports;
 
 use App\textReg;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 
 
 
-class CsvImport implements ToModel
+
+class CsvImport implements ToModel ,WithHeadingRow
 {
     /**
     * @param array $row
@@ -18,13 +20,13 @@ class CsvImport implements ToModel
     public function model(array $row)
     {
         return new textReg([
-            'Libellée' => $row["Libellée"],
-            'Thème' => $row["Thème"],
-            'SousThème' => $row["SousThème"],
-            'N°BO' => $row["N°BO"],
-            'Texte' => $row["Texte"],
-            'Fichedaudit' => $row["Fichedaudit"],
-            'Fichedelecture' => $row["Fichedelecture"],
+            'theme' => $row["theme"],
+            'soustheme' => $row["soustheme"],
+            'libellee' => $row["libellee"],
+            'nbo' => $row["nbo"],
+            'texte' => $row["texte"],
+            'fichedaudit' => $row["fichedaudit"],
+            'fichedelecture' => $row["fichedelecture"],
 
 
 

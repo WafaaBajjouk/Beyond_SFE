@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\text;
-
 
 class HomeController extends Controller
 {
@@ -21,11 +19,10 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(){
-        $textList = text::all();
-        return view('welcome' ,  ['text'=> $textList]);
-
+    public function index()
+    {
+        return view('home');
     }
 }

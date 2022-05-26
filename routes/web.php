@@ -91,8 +91,14 @@ Route::delete('/text/{id}','TextController@destroy');
 
 Route::get('csv_file','CsvFile@index');
 Route::get('csv_file/export','CsvFile@csv_export')->name('export');
-Route::post('csv_file/import','CsvFile@csv_import')->name('import');
+// Route::post('/import','CsvFile@csv_import')->name('import');
+
+Route::match(['get', 'post'], '/import', 'CsvFile@csv_import')->name('import');
 
 
 
 // Route::get('/')
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
