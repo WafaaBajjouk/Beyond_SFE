@@ -43,11 +43,12 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Auth::routes();
 
 // admin login
-Route::get('/admin/login', [App\Http\Controllers\AdminLoginController::class, 'showLoginForm'])->name('admin.login');
-Route::post('/admin/login', [App\Http\Controllers\AdminLoginController::class, 'login'])->name('admin.login.submit');
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashbord');
+Route::get('/admin/login', 'AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/admin/login', 'AdminLoginController@showLoginForm')->name('admin.login.submit');
+Route::get('/admin', 'AdminController@index')->name('admin.dashbord');
 
 
 
@@ -98,7 +99,3 @@ Route::match(['get', 'post'], '/import', 'CsvFile@csv_import')->name('import');
 
 
 // Route::get('/')
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
