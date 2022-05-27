@@ -99,3 +99,18 @@ Route::match(['get', 'post'], '/import', 'CsvFile@csv_import')->name('import');
 
 
 // Route::get('/')
+// gestion des alerts
+
+
+
+Route::get('/alert' , 'AlertController@index');
+
+Route::get('/alert/create' , 'AlertController@create');
+
+Route::post('/alert' , 'AlertController@store');
+
+Route::get('/alert/{id}/edit' , 'AlertController@edit');
+
+Route::put('/alert/{id}','AlertController@update');
+
+Route::delete('/alert/{id}','AlertController@destroy');

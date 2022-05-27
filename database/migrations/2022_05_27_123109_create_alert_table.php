@@ -15,7 +15,7 @@ class CreateAlertTable extends Migration
     {
         Schema::create('alert', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // $table->Client('client');
+            $table->String('titre');
             $table->integer('id_client');
             $table->string('client_name');
             $table->text('text');
@@ -23,11 +23,7 @@ class CreateAlertTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('alert');

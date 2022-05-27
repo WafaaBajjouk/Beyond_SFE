@@ -12,24 +12,34 @@ class AlertController extends Controller
 
     public function index(){
         $alertList = Alert::all();
+        $clientList = Client::all();
 
-        return view('alert.index' , ['alert'=> $alertList]);
+
+        return view('alert.index' , ['alert'=> $alertList] , ['client'=>$clientList]);
 
     }
 
     public function create(){
-        return view('alert.create');
+        $clientList = Client::all();
+
+        return view('alert.create',['client'=>$clientList]);
     }
 
     public function store(Request $request ){
         $alert = new Alert();
 
         $alert->text=$request->input('text');
-        $alert->client_name=$request->input('client_name');
+        $alert->titre=$request->input('titre');
+
+        $name=$alert->client_name=$request->input('client_name');
 
 
-        $client = Client::find($alert->id_client);
-        $alert->
+        $client = Client::where('nom',$name)->get();
+
+        // echo $client
+
+        $alert->id_client=$client->id;
+
 
         // $alert->id_client=
             $alert->save();
