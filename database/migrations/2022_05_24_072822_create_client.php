@@ -17,6 +17,8 @@ class CreateClient extends Migration
             $table->increments('id');
             $table->String('nom');
             $table->String('prenom');
+            $table->String('password');
+            $table->rememberToken();
             $table->String('poste');
             $table->String('entreprise');
             $table->String('email');

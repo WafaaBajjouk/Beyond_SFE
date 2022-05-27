@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
-    return view('/client/create');
+    return view('HomeIndex');
 });
 
 // // premier param : nom de la route
@@ -47,7 +47,7 @@ Auth::routes();
 
 // admin login
 Route::get('/admin/login', 'AdminLoginController@showLoginForm')->name('admin.login');
-Route::post('/admin/login', 'AdminLoginController@showLoginForm')->name('admin.login.submit');
+Route::post('/admin/login', 'AdminLoginController@login')->name('admin.submit');
 Route::get('/admin', 'AdminController@index')->name('admin.dashbord');
 
 

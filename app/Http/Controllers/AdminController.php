@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    /**
+    //
+
+
+        /**
      * Create a new controller instance.
      *
      * @return void
@@ -23,6 +26,6 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        return view('admin.index');
     }
 }
