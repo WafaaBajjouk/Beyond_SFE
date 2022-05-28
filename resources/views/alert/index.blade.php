@@ -716,9 +716,9 @@
                                                                            {{ method_field('DELETE')}}
 
                                                                            <a href="" class="btn btn-primary">Afficher</a>
-                                                                           <a href="{{url('alert/'.$alert->id.'/edit')}}" class="btn btn-danger">Alert</a>
+                                                                           {{-- <a href="{{url('alert/'.$alert->id.'/edit')}}" class="btn btn-danger">Alert</a> --}}
 
-                                                                           {{-- <button type="submit" class="btn btn-danger">Supprimmer</button> --}}
+                                                                           <button type="submit" class="btn btn-danger">Supprimmer</button>
 
                                                                        </form>
 

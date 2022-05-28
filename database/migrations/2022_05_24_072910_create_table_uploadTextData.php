@@ -14,12 +14,12 @@ class CreateTableUploadTextData extends Migration
     public function up()
     {
         Schema::create('text_regs', function (Blueprint $table) {
+            $table->string('datedecreation');
 
             $table->string('theme');
             $table->string('soustheme');
             $table->increments('id');
             $table->longText('libellee');
-            $table->string('datedecreation');
             $table->string('nbo');
             $table->string('texte');
             $table->string('fichedelecture');

@@ -10,6 +10,8 @@ return [
          * SQL: column LIKE "%keyword%"
          */
         'smart'            => true,
+        'strict' => false,
+
 
         /*
          * Multi-term search will explode search keyword using spaces resulting into multiple term search.

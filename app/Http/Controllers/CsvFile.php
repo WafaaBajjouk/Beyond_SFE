@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 // use Illuminate\DataTables;
+use Illuminate\Support\Facades\Input;
+
 use Illuminate\Support\Facades\DB;
 use App\textReg;
 // use Yajra\DataTables\Facades\DataTables;
@@ -22,14 +24,9 @@ class CsvFile extends Controller
 {
     //
     function index(Request $request ){
-        $data = textReg::latest()->paginate(10);
+        $data = textReg::latest()->paginate(500);
                  return view('csv_pagi' , compact('data'))
-                                 ->with('i',(request()->input('page',1)-1)*10);
-
-
-
-
-
+                                 ->with('i',(request()->input('page',1)-1)*500);
     //                             //
     //                             if(request()->ajax())
     //  {
@@ -50,7 +47,17 @@ class CsvFile extends Controller
     //         }
 
                 // return view('custom_search', compact('country_name'));
-    }
+
+
+                // if(Input::get ( "search" )!=null){
+                //     $search = Input::get ( "search" );
+                //     $data = textReg::where ( 'theme', 'LIKE', '%' . $search . '%' )->orWhere ( 'soustheme', 'LIKE', '%' . $search . '%' )->get ();
+                //     if (count ( $data ) > 0)
+                //     return view ( 'csv_pagi' )->withDetails ( $data )->withQuery ( $search );
+                //     else
+                //     return view ( 'csv_pagi' )->withMessage ( 'No Details found. Try to search again !' );
+    // }
+}
 
     public function csv_export(){
         return Excel::download(new CsvExport,'sample.csv');
@@ -69,5 +76,20 @@ class CsvFile extends Controller
         // return back();
         return back();
     }
+
+
+    // public function findSearch()
+    //                 {
+
+    //             $data = textReg::all();
+    //         if(Input::get ( "search" )!=null){
+    //             $search = Input::get ( "search" );
+    //             $data = textReg::where ( 'theme', 'LIKE', '%' . $search . '%' )->orWhere ( 'soustheme', 'LIKE', '%' . $search . '%' )->get ();
+    //             if (count ( $data ) > 0)
+    //             return view ( 'csv_pagi' )->withDetails ( $data )->withQuery ( $search );
+    //             else
+    //             return view ( 'csv_pagi' )->withMessage ( 'No Details found. Try to search again !' );}
+    //             // else
+    //             }
 }
 

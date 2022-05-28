@@ -44,7 +44,7 @@
                         </span>
                     </button>
                 </span>
-            </div>   
+            </div>
              <div class="app-header__content">
                 <div class="app-header-left">
                     <div class="search-wrapper">
@@ -55,7 +55,7 @@
                         <button class="close"></button>
                     </div>
                     <ul class="header-menu nav">
-                  
+
                         <li class="btn-group nav-item">
                             <a href="{{ url('client')}}" class="nav-link">
                                 <i class="nav-link-icon fa fa-user"></i>
@@ -66,7 +66,7 @@
                                 <li class="nav-item">
                             <a href="{{ url('text')}}" class="nav-link">
                                 <i class="nav-link-icon fa fa-database"> </i>
-                                Gestion des textes reglemntaires 
+                                Gestion des textes reglemntaires
                             </a>
                         </li>
                         <li class="dropdown nav-item">
@@ -422,7 +422,7 @@
                                 </span>
                             </button>
                         </span>
-                    </div>   
+                    </div>
                      {{-- <div class="scrollbar-sidebar">
                         <div class="app-sidebar__inner">
                             <ul class="vertical-nav-menu">
@@ -435,14 +435,14 @@
                                 </li>
                                 <li class="app-sidebar__heading">UI Components</li>
                                 <li
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
+
+
+
+
+
+
+
+
                                 >
                                     <a href="#">
                                         <i class="metismenu-icon pe-7s-diamond"></i>
@@ -450,14 +450,14 @@
                                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                     </a>
                                     <ul
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
+
+
+
+
+
+
+
+
                                     >
                                         <li>
                                             <a href="elements-buttons-standard.html">
@@ -510,17 +510,17 @@
                                     </ul>
                                 </li>
                                 <li
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
+
+
+
+
+
+
+
+
+
+
+
                                 >
                                     <a href="#">
                                         <i class="metismenu-icon pe-7s-car"></i>
@@ -528,17 +528,17 @@
                                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                     </a>
                                     <ul
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
+
+
+
+
+
+
+
+
+
+
+
                                     >
                                         <li>
                                             <a href="components-tabs.html">
@@ -666,17 +666,17 @@
                         <div class="app-page-title">
                             <div class="page-title-wrapper">
 
-                                
+
                                 <div class="page-title-heading">
-                                    
-                                    
-                       
+
+
+
                                 </div>
                                 <div class="page-title-actions">
-                                    
-                       
+
+
                                     <div class="d-inline-block dropdown">
-                           
+
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
@@ -715,9 +715,9 @@
                                                 </li>
                                             </ul>
                                         </div>
-                 
 
-                                
+
+
                             </div>
 
                             <table class="table">
@@ -730,45 +730,47 @@
                                     <th>fichier</th>
                                     <th>Temps</th>
                                     <th>Action</th>
-                
+
                                 </tr>
                                 </head>
                              <body>
-                
+
                                 @foreach ($text as $text)
-                                    
+
                                  <tr>
                                     <td>{{ $text->id}}</td>
                                     <td>{{ $text->titre}}</td>
-                                    <td>{{ $text->Theme}}</td>     
+                                    <td>{{ $text->Theme}}</td>
                                     <td>{{ $text->Sous_Theme}}</td>
-                                    <td>{{ $text->file}}</td>            
+                                    <td>{{ $text->file}}</td>
                                     <td>{{ $text->created_at}}</td>
                                     <td>
-                                    
+
                                         <form action="{{ url('text/'.$text->id)}}" method="POST">
-                                            {{ csrf_field() }}
-                
-                                            {{ method_field('DELETE')}}
-                
-                                        
+                                            {{-- {{ csrf_field() }}
+
+                                            {{ method_field('DELETE')}} --}}
+
+                                            @csrf
+                                            @method('delete')
+
                                             <button type="submit" class="btn btn-danger">Supprimmer</button> <br><br>
                                             <button type="submit" class="btn btn-primary">Telecharger</button>
-                
-                
+
+
                                         </form>
-                
+
                                     </td>
-                
+
                                 </tr>
                                 @endforeach
-                
+
                              </body>
                             </table>
 
-                            
 
-                    
+
+
                 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
     </div>

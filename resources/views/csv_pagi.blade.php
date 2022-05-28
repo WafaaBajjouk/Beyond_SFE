@@ -10,72 +10,43 @@
     <div class="container mt-5 text-center">
         <h2 class="mb-4">
         </h2>
-        <form enctype="multipart/form-data" action="{{ route('import') }}" method="POST" >
-            @csrf
-            <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
-                <div class="custom-file text-left">
-                    <input type="file" name="file" class="custom-file-input" id="customFile">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
-                </div>
+
+
+        <form action="{{url('/csv_file/search')}}" method="POST" role="search">
+            {{csrf_field()}}
+            <div class="input-group">
+              <input type="text" name="q" placeholder="Search for"><span class="input-group-btn">
+                <select name="q" >
+                    <option value="Environnement">Environnement</option>
+                    <option value="Santé et sécurité au travail">Santé et sécurité au travail</option>
+                    {{-- <option value="Environnement">Environnement</option> --}}
+
+                </select>
+
+                <button type="submit" class="btn btn-info">
+           <i class="fas fa-search fa-sm"></i> Search
+          </button>
+              </span>
+
             </div>
-            <button class="btn btn-primary">Import data</button>
-            <a class="btn btn-success" href="{{ route('export') }}">Export data</a>
-        </form>
+          </form>
     </div>
 
 
-
-
-
-
-
-
-
-    <br />
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <select name="filter_theme" id="filter_gender" class="form-control" required>
-                            <option value="">Select Theme</option>
-                            <option value="Environnement">Environnement</option>
-                            <option value="Santé et sécurité au travail">Santé et sécurité au travail</option>
-                        </select>
-                    </div>
-                    {{-- <div class="form-group">
-                        <select name="filter_country" id="filter_country" class="form-control" required>
-                            <option value="">Select Country</option>
-                            @foreach($country_name as $country)
-
-                            <option value="{{ $country->Country }}">{{ $country->Country }}</option>
-
-                            @endforeach
-                        </select>
-                    </div> --}}
-
-                    <div class="form-group" align="center">
-                        <button type="button" name="filter" id="filter" class="btn btn-info">Filter</button>
-
-                        <button type="button" name="reset" id="reset" class="btn btn-default">Reset</button>
-                    </div>
-                </div>
-                <div class="col-md-4"></div>
-            </div>
-            <br />
-
-            {{-- ======================================= --}}
-
-
     <table class="table">
+ @if(isset($data))
         <head>
         <tr>
-            <th>Id</th>
+            <th>NBO</th>
+
             <th>Titre</th>
             <th>Theme</th>
             <th>Sous Theme</th>
-            <th>fichier</th>
-            <th>Temps</th>
-            <th>Action</th>
+            <th>TempS</th>
+
+            <th>Text</th>
+            <th>Fich de lecture</th>
+            <th>fiche d audit</th>
 
         </tr>
         </head>
@@ -84,32 +55,32 @@
         @foreach ($data as $data)
 
          <tr>
-            <td>{{ $data->id}}</td>
+            <td>{{ $data->nbo}}</td>
             <td>{{ $data->libellee}}</td>
             <td>{{ $data->theme}}</td>
-            <td>{{ $data->sousTheme}}</td>
+            <td>{{ $data->soustheme}}</td>
+            <td>{{ $data->datedecreation}}</td>
             <td>{{ $data->texte}}</td>
-            <td>{{ $data->created_at}}</td>
+            <td>{{ $data->fichedelecture}}</td>
+            <td>{{ $data->fichedaudit}}</td>
+
+
+
+
             <td>
 
-                <form action="{{ url('text/'.$data->id)}}" method="POST">
-                    {{ csrf_field() }}
-
-                    {{ method_field('DELETE')}}
-
-
-                    <button type="submit" class="btn btn-danger">Supprimmer</button> <br><br>
-                    <button type="submit" class="btn btn-primary">Telecharger</button>
-
-
-                </form>
 
             </td>
 
         </tr>
-        @endforeach
 
-     </body>
+        @endforeach
+    </tbody>
     </table>
+    {{-- {!! $data->render() !!} --}}
+    @else{{$message}}
+    @endif
+</div>
+
 </body>
 </html>

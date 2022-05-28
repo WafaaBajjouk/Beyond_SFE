@@ -34,7 +34,7 @@ class AlertController extends Controller
         $name=$alert->client_name=$request->input('client_name');
 
 
-        $client = Client::where('nom',$name)->get();
+        $client = Client::where('nom',$name)->first();
 
         // echo $client
 
