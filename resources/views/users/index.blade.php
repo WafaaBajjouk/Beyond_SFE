@@ -1,60 +1,64 @@
-{{-- @extends('layouts.sidebar') --}}
+@extends('layouts.master')
 
-{{-- @section('content') --}}
+@section('title')
 
-<table class="table">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Nom</th>
-        <th>Email</th>
-        {{-- <th>Telephone</th> --}}
-        <th>Role</th>
-        <th>Permissions</th>
-        <th>Date</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
+    Admin Dashboard
 
 
-                        @foreach ($user as $user)
-
-                        <tr>
-                           <td>{{ $user->id}}</td>
-                           <td>{{ $user->name}}</td>
-                           <td>{{ $user->email}}</td>
-                           {{-- <td>{{ $user->telephone}}</td> --}}
-                           <td>{{ $user->role}}</td>
-                           <td>{{ $user->permissions}}</td>
-                           <td>{{ $user->created_at}}</td>
-                           <td>
-
-                               <form action="{{ url('user/'.$user->id )}}" method="POST">
-                                   {{ csrf_field() }}
-
-                                   {{ method_field('DELETE')}}
-
-                                   <a href="" class="btn btn-primary">Afficher</a>
-                                   <a href="{{url('user/'.$user->id.'/edit')}}" class="btn btn-default">Modifier</a>
-
-                                   <button type="submit" class="btn btn-danger">Supprimmer</button>
-
-                               </form>
-
-                           </td>
-
-                    </div>
-
-@endforeach
-
-</body>
-</table>
+@endsection
 
 
-</main>
-</div>
+@section('content')
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Simple Table</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Email</th>
+                {{-- <th>Telephone</th> --}}
+                <th>Role</th>
+                <th>Permissions</th>
+                <th>Date</th>
+                    <th>Action</th>
+
+              </thead>
+              <tbody>
+                @foreach ($user as $user)
+
+                <tr>
+                    <td>{{ $user->id}}</td>
+                    <td>{{ $user->name}}</td>
+                    <td>{{ $user->email}}</td>
+                    {{-- <td>{{ $user->telephone}}</td> --}}
+                    <td>{{ $user->role}}</td>
+                    <td>{{ $user->permissions}}</td>
+                    <td>{{ $user->created_at}}</td>
+                    <td></td>
+
+                </tr>
+                @endforeach
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-{{-- @endsection --}}
+
+@endsection
+
+
+
+@section('scripts')
+
+@endsection

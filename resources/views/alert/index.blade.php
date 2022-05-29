@@ -1,62 +1,77 @@
-@extends('layouts.sidebar')
-                                <div class="page-title-actions">
+@extends('layouts.master')
 
-                                    <div class="d-inline-block dropdown">
+@section('title')
 
-                                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
-                                            <thead>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Titre</th>
-                                                {{-- <th>Client Id</th> --}}
-                                                <th>Client </th>
-                                                <th>Text</th>
+    Admin Dashboard
 
-                                                <th>Action</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                {{-- <td class="text-center text-muted">#345</td> --}}
-                                                <td>
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left mr-3">
 
-                                                            </div>
-                                                            <div class="widget-content-left flex2">
-                                                                {{-- <div class="widget-heading">John Doe</div>
-                                                                <div class="widget-subheading opacity-7">Web Developer</div> --}}
+@endsection
 
-                                                                @foreach ($alert as $alert)
 
-                                                                <tr>
-                                                                   <td>{{ $alert->id}}</td>
-                                                                   <td>{{ $alert->titre}}</td>
-                                                                   {{-- <td>{{ $alert->id_client}}</td> --}}
-                                                                   <td>{{ $alert->client_name}}</td>
-                                                                   <td>{{ $alert->text}}</td>
+@section('content')
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Liste des Alerts</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>Id</th>
+                <th>Titre</th>
+                {{-- <th>Client Id</th> --}}
+                <th>Client </th>
+                <th>Text</th>
 
-                                                                   {{-- <td>{{ $client->created_at}}</td> --}}
-                                                                   <td>
+                <th>Action</th>
 
-                                                                       <form action="{{ url('alert/'.$alert->id )}}" method="POST">
-                                                                           {{ csrf_field() }}
+              </thead>
+              <tbody>
+                @foreach ($alert as $alert)
 
-                                                                           {{ method_field('DELETE')}}
+                <tr>
+                    <td>{{ $alert->id}}</td>
+                    <td>{{ $alert->titre}}</td>
+                    {{-- <td>{{ $alert->id_client}}</td> --}}
+                    <td>{{ $alert->client_name}}</td>
+                    <td>{{ $alert->text}}</td>
 
-                                                                           <a href="" class="btn btn-primary">Afficher</a>
-                                                                           {{-- <a href="{{url('alert/'.$alert->id.'/edit')}}" class="btn btn-danger">Alert</a> --}}
+                    <td>
 
-                                                                           <button type="submit" class="btn btn-danger">Supprimmer</button>
+                        <form action="{{ url('alert/'.$alert->id )}}" method="POST">
+                            {{ csrf_field() }}
 
-                                                                       </form>
+                            {{ method_field('DELETE')}}
 
-                                                                   </td>
+                            <a href="" class="btn btn-primary">Afficher</a>
+                            {{-- <a href="{{url('alert/'.$alert->id.'/edit')}}" class="btn btn-danger">Alert</a> --}}
 
-                                                            </div>
-                                                        {{-- </div>
-                                                    </div>
-                                                </td> --}}
-                                    @endforeach
-                                            </table>
+                            <button type="submit" class="btn btn-danger">Supprimmer</button>
+
+                        </form>
+
+                    </td>
+
+
+                </tr>
+                @endforeach
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+@endsection
+
+
+
+@section('scripts')
+
+@endsection
