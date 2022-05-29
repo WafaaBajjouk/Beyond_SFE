@@ -431,14 +431,14 @@
                                 </li>
                                 <li class="app-sidebar__heading">UI Components</li>
                                 <li
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
+
+
+
+
+
+
+
+
                                 >
                                     <a href="#">
                                         <i class="metismenu-icon pe-7s-diamond"></i>
@@ -446,14 +446,14 @@
                                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                     </a>
                                     <ul
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
+
+
+
+
+
+
+
+
                                     >
                                         <li>
                                             <a href="elements-buttons-standard.html">
@@ -506,17 +506,17 @@
                                     </ul>
                                 </li>
                                 <li
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
+
+
+
+
+
+
+
+
+
+
+
                                 >
                                     <a href="#">
                                         <i class="metismenu-icon pe-7s-car"></i>
@@ -524,17 +524,17 @@
                                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                     </a>
                                     <ul
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
+
+
+
+
+
+
+
+
+
+
+
                                     >
                                         <li>
                                             <a href="components-tabs.html">

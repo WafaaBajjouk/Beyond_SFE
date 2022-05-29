@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
-    return view('HomeIndex');
+    return view('auth.login');
 });
 
 // // premier param : nom de la route
@@ -45,6 +45,7 @@ Route::get('/', function () {
 //added autom
 
 Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/', '@index')->name('home');
 
 Auth::routes();
 
@@ -136,3 +137,14 @@ Route::get('/alert/{id}/edit' , 'AlertController@edit');
 Route::put('/alert/{id}','AlertController@update');
 
 Route::delete('/alert/{id}','AlertController@destroy');
+
+
+Route::get('/user' , 'UserController@index');
+
+// Route::get('/user/{id}/edit' , 'UserController@edit');
+
+Route::put('/user/{id}','UserController@update');
+
+Route::delete('/user/{id}','UserController@destroy');
+
+Route::match(['get', 'put'], '/user/{id}/edit', 'UserController@edit');
