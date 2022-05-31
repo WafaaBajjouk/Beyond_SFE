@@ -5,6 +5,7 @@
 
 // use Illuminate\Routing\Route;
 
+use App\Client;
 use App\Http\Controllers\CsvFile;
 use App\textReg;
 use Illuminate\Support\Facades\Route;
@@ -63,11 +64,42 @@ Route::get('/client/create' , 'ClientController@create');
 
 Route::post('/client' , 'ClientController@store');
 
-Route::get('/client/{id}/edit' , 'ClientController@edit');
+Route::get('/client/edit/{id}' , 'ClientController@edit');
 
 Route::put('/client/{id}','ClientController@update');
 
 Route::delete('/client/{id}','ClientController@destroy');
+
+Route::get('/clientInfo/{id}','ClientController@info');
+
+// Route::get('/addAlert/{id}','ClientController@addAlert');
+
+Route::get('/addAlert/client/{id}' , 'AlertController@alertForm');
+
+
+Route::get('/GetAlert/{id}','ClientController@getAlertByClient');
+
+Route::get('/clientAlert' , 'AlertController@clientList');
+
+Route::post('/addAlert/{id}','AlertController@addAlert');
+
+
+
+
+
+Route::any('/client/search',function(){
+	$q = (Input::get('q'));
+	if($q != ''){
+		$data =Client::where('name','like','%'.$q.'%')->orWhere('id','like','%'.$q.'%')->paginate(500)->setpath('');
+		$data->appends(array(
+           'q' => Input::get('q'),
+		));
+		if(count($data)>0){
+			return view('client')->withData($data);
+		}
+		return view('client')->withMessage("No Results Found!");
+	}
+});
 
 // text routes
 
@@ -124,7 +156,11 @@ Route::any('/csv_file/search',function(){
 // Route::get('/')
 // gestion des alerts
 
-
+Route::get('/themes' , function () {
+	$data = textReg::distinct()->get();
+    // $data=$data->distinct()->get(['soustheme']);
+    return view('theme.index')->withData($data);
+});
 
 Route::get('/alert' , 'AlertController@index');
 

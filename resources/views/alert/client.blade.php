@@ -16,17 +16,7 @@
           <h4 class="card-title"> La liste des clients</h4>
         </div>
 
-        {{-- <form action="{{ url('client/create')}}" method="POST">
 
-        <button style="margin-left: 920px;margin-right:10px;"  type="submit" class="btn btn-success">Ajouter Un nouveau Client</button>
-
-        </form> --}}
-
-        <div class="pull-right">
-            <a style="margin-right:10px;"   href="{{ url('client/create')}}" class="btn btn-success">Nouveau Client</a>
-
-
-        </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
@@ -62,10 +52,8 @@
 
                             {{ method_field('DELETE')}}
 
-                            <a href="{{url('client/edit/'.$client->id)}}" class="btn btn-primary">Modifier</a><br><br>
+                            <a href="{{url('addAlert/'.$client->id).'/client'}}" class="btn btn-primary">Alerter</a><br><br>
                             <a href="{{url('clientInfo/'.$client->id)}}" class="btn btn-default">details</a><br><br>
-
-                            <button type="submit" class="btn btn-danger">Supprimmer</button>
 
                         </form>
 

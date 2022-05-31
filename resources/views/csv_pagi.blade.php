@@ -1,86 +1,113 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Import Export Excel & CSV to Database in Laravel 7</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container mt-5 text-center">
-        <h2 class="mb-4">
-        </h2>
+@extends('layouts.master')
+
+@section('title')
+
+    Admin Dashboard
 
 
-        <form action="{{url('/csv_file/search')}}" method="POST" role="search">
-            {{csrf_field()}}
-            <div class="input-group">
-              <input type="text" name="q" placeholder="Search for"><span class="input-group-btn">
-                <select name="q" >
-                    <option value="Environnement">Environnement</option>
-                    <option value="Santé et sécurité au travail">Santé et sécurité au travail</option>
-                    {{-- <option value="Environnement">Environnement</option> --}}
+@endsection
 
-                </select>
 
-                <button type="submit" class="btn btn-info">
-           <i class="fas fa-search fa-sm"></i> Search
-          </button>
-              </span>
+@section('content')
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Les textes règlementaires</h4>
+        </div>
 
-            </div>
-          </form>
+        {{-- <form action="{{ url('client/create')}}" method="POST">
+
+        <button style="margin-left: 920px;margin-right:10px;"  type="submit" class="btn btn-success">Ajouter Un nouveau Client</button>
+
+        </form> --}}
+
+        {{-- <div class="pull-right">
+            <a style="margin-right:10px;"   href="{{ url('client/create')}}" class="btn btn-success">Nouveau Client</a>
+
+
+        </div> --}}
+
+        <div class="container mt-5 text-center">
+            <h2 class="mb-4">
+            </h2>
+            <form enctype="multipart/form-data" action="{{ route('import') }}" method="POST" >
+                @csrf
+                <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
+                    <div class="custom-file text-left">
+                        <input type="file" name="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                </div>
+                <button class="btn btn-primary">Import data</button>
+                <a class="btn btn-success" href="{{ route('export') }}">Export data</a>
+            </form>
+        </div>
+
+
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <tr>
+                    <th>N BO</th>
+                    <th>Titre</th>
+                    <th>Theme</th>
+                    <th>Sous Theme</th>
+                    <th>fichier</th>
+                    <th>Temps</th>
+                    <th>Action</th>
+
+                </tr>
+
+
+              </thead>
+              <tbody>
+                @foreach ($data as $data)
+
+                <tr>
+                    <td>{{ $data->id}}</td>
+                    <td>{{ $data->libellee}}</td>
+                    <td>{{ $data->theme}}</td>
+                    <td>{{ $data->soustheme}}</td>
+                    <td>{{ $data->texte}}</td>
+                    <td>{{ $data->created_at}}</td>
+
+
+                    <td>
+
+                        <form action="{{ url('text/'.$data->id)}}" method="POST">
+                            {{ csrf_field() }}
+
+                            {{ method_field('DELETE')}}
+
+
+                            <button type="submit" class="btn btn-danger">Supprimmer</button> <br><br>
+                            <button type="submit" class="btn btn-primary">Telecharger</button>
+
+
+                        </form>
+
+                    </td>
+
+
+
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-
-
-    <table class="table">
- @if(isset($data))
-        <head>
-        <tr>
-            <th>NBO</th>
-
-            <th>Titre</th>
-            <th>Theme</th>
-            <th>Sous Theme</th>
-            <th>TempS</th>
-
-            <th>Text</th>
-            <th>Fich de lecture</th>
-            <th>fiche d audit</th>
-
-        </tr>
-        </head>
-     <body>
-
-        @foreach ($data as $data)
-
-         <tr>
-            <td>{{ $data->nbo}}</td>
-            <td>{{ $data->libellee}}</td>
-            <td>{{ $data->theme}}</td>
-            <td>{{ $data->soustheme}}</td>
-            <td>{{ $data->datedecreation}}</td>
-            <td>{{ $data->texte}}</td>
-            <td>{{ $data->fichedelecture}}</td>
-            <td>{{ $data->fichedaudit}}</td>
+  </div>
 
 
 
+@endsection
 
-            <td>
 
 
-            </td>
+@section('scripts')
 
-        </tr>
-
-        @endforeach
-    </tbody>
-    </table>
-    {{-- {!! $data->render() !!} --}}
-    @else{{$message}}
-    @endif
-</div>
-
-</body>
-</html>
+@endsection

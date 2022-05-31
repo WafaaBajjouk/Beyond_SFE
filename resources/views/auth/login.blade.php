@@ -1,159 +1,168 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Admin
-                Login') }}</div>
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Login Page - Now UI Kit by Creative Tim</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../assets/css/demo.css" rel="stylesheet" />
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://www.creative-tim.com/product/now-ui-kit" />
+    <!--  Social tags      -->
+    <meta name="keywords" content="bootstrap 4, bootstrap 4 uit kit, bootstrap 4 kit, now ui, now ui kit, creative tim, html kit, html css template, web template, bootstrap, bootstrap 4, css3 template, frontend, responsive bootstrap template, bootstrap ui kit, responsive ui kit">
+    <meta name="description" content="Start your development with a beautiful Bootstrap 4 UI kit. It is yours Free.">
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Now UI Kit by Creative Tim">
+    <meta itemprop="description" content="Start your development with a beautiful Bootstrap 4 UI kit. It is yours Free.">
+    <meta itemprop="image" content="http://s3.amazonaws.com/creativetim_bucket/products/56/original/opt_nuk_thumbnail.jpg">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="product">
+    <meta name="twitter:site" content="@creativetim">
+    <meta name="twitter:title" content="Now UI Kit by Creative Tim">
+    <meta name="twitter:description" content="Start your development with a beautiful Bootstrap 4 UI kit. It is yours Free.">
+    <meta name="twitter:creator" content="@creativetim">
+    <meta name="twitter:image" content="http://s3.amazonaws.com/creativetim_bucket/products/56/original/opt_nuk_thumbnail.jpg">
+    <meta name="twitter:data1" content="Now UI Kit by Creative Tim">
+    <meta name="twitter:label1" content="Product Type">
+    <meta name="twitter:data2" content="Free">
+    <meta name="twitter:label2" content="Price">
+    <!-- Open Graph data -->
+    <meta property="fb:app_id" content="655968634437471">
+    <meta property="og:title" content="Now UI Kit by Creative Tim" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://demos.creative-tim.com/now-ui-kit/index.html" />
+    <meta property="og:image" content="http://s3.amazonaws.com/creativetim_bucket/products/56/original/opt_nuk_thumbnail.jpg" />
+    <meta property="og:description" content="Start your development with a beautiful Bootstrap 4 UI kit. It is yours Free." />
+    <meta property="og:site_name" content="Creative Tim" />
+</head>
 
-                <div class="card-body">
+<body class="login-page sidebar-collapse">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
+        <div class="container">
+            {{-- <div class="dropdown button-dropdown">
+                <a href="#pablo" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
+                    <span class="button-bar"></span>
+                    <span class="button-bar"></span>
+                    <span class="button-bar"></span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-header">Dropdown header</a>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">One more separated link</a>
+                </div>
+            </div> --}}
+            <div class="navbar-translate"> {{--
+                <a class="navbar-brand" href="http://demos.creative-tim.com/now-ui-kit/index.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
+                    Now Ui Kit
+                </a>
+                <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                </button>
+            </div> --}}
+            {{-- <div class="collapse navbar-collapse justify-content-end" data-nav-image="../assets/img/blurred-image-1.jpg">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Back to Kit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/creativetimofficial/now-ui-kit/issues">Have an issue?</a>
+                    </li> --}}
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                            <p class="d-lg-none d-xl-none">Twitter</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
+                            <i class="fa fa-facebook-square"></i>
+                            <p class="d-lg-none d-xl-none">Facebook</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                            <p class="d-lg-none d-xl-none">Instagram</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="page-header" filter-color="orange">
+        <div class="page-header-image" style="background-image:url(../assets/img/login.jpg)"></div>
+        <div class="container">
+            <div class="col-md-4 content-center">
+                <div class="card card-login card-plain">
                     <form method="POST" action="{{ route('admin.submit') }}">
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <div class="header header-primary text-center">
+                            <div class="logo-container">
+                                <img src="../assets/img/logobeyond.png" alt="">
                             </div>
                         </div>
+                        <div class="content">
+                            <div>
+                                <label for="">Email</label> <input id="email" type="text" class="form-control" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                {{-- <span class="input-group-addon"> --}}
+                                    {{-- <i class="now-ui-icons users_circle-08"></i> --}}
+                                {{-- </span>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            </div><br><br>
+                            <div class="form-group">
+                                {{-- <span class="input-group-addon"> --}}
+                                    {{-- <i class="now-ui-icons text_caps-small"></i> --}}
+                                {{-- </span> --}}
+                            <br><br>  <label for="">Password</label><input id="password" type="password" class="form-control" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                          </div>
+                        </div>
+                        <div class="footer text-center">
+                            {{-- <a class="btn btn-primary btn-round btn-lg btn-block">Get Started</a> --}}
+                            <button  class="btn btn-primary btn-round btn-lg btn-block" type="submit">
+                                {{ __('Login') }}
+                            </button>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
                     </form>
                 </div>
             </div>
         </div>
+
     </div>
-</div> --}}
+</body>
+<!--   Core JS Files   -->
+<script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="../assets/js/plugins/bootstrap-switch.js"></script>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+<script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+<!-- Share Library etc -->
+<script src="../assets/js/plugins/jquery.sharrre.js" type="text/javascript"></script>
+<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+<script src="../assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
 
-<!-- Section: Design Block -->
-<section class="background-radial-gradient overflow-hidden">
-    <style>
-        .main{
-            margin-top:150px;
-        }
-
-      #radius-shape-1 {
-        height: 220px;
-        width: 220px;
-        top: -60px;
-        left: -130px;
-        background: radial-gradient(#44006b, #ad1fff);
-        overflow: hidden;
-      }
-
-      #radius-shape-2 {
-        border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-        bottom: -60px;
-        right: -110px;
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(#44006b, #ad1fff);
-        overflow: hidden;
-      }
-
-      .bg-glass {
-        background-color: hsla(0, 14%, 96%, 0.9) !important;
-        backdrop-filter: saturate(200%) blur(25px);
-      }
-    </style>
-<div class="main">
-    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
-      <div class="row gx-lg-5 align-items-center mb-5">
-        <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-          <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(219, 61%, 11%)">
-            The best offer <br />
-            <span style="color: hsl(279, 59%, 58%)">for your business</span>
-          </h1>
-          <p class="mb-4 opacity-70" style="color: hsl(218, 44%, 13%)">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Temporibus, expedita iusto veniam atque, magni tempora mollitia
-            dolorum consequatur nulla, neque debitis eos reprehenderit quasi
-            ab ipsum nisi dolorem modi. Quos?
-          </p>
-        </div>
-
-        <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-          <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
-          <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
-
-          <div class="card bg-glass">
-            <div class="card-body px-4 py-5 px-md-5">
-              <form>
-     <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3" class="form-control" />
-                  <label class="form-label" for="form3Example3">Email address</label>
-                </div>
-
-                <!-- Password input -->
-                <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4" class="form-control" />
-                  <label class="form-label" for="form3Example4">Password</label>
-                </div>
-
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4">
-                  Sign up
-                </button>
-
-                <a type="submit" href="{{ route('register') }}" >
-                    Sign up
-                </a>
-
-
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
-  </section>
-  <!-- Section: Design Block -->
+</html>

@@ -15,8 +15,9 @@ class Client extends Model
      *
      * @var array
      */
+    protected $table= "clients";
     protected $fillable = [
-        'id','nom', 'email', 'password', 'entreprise' , 'prenom' , 'poste' ,'telephone'
+        'id','nom', 'email', 'password', 'entreprise', 'poste' ,'telephone', 'ville' , 'addresse'
     ];
 
     // /**
@@ -27,4 +28,11 @@ class Client extends Model
     // protected $hidden = [
     //     'password', 'remember_token',
     // ];
+
+    public function alerts(){
+        // Client has multiple Alerts
+
+        // Eloquent will automatically determine the proper foreign key column on the Alert Model.
+            return $this->hasMany('App\Alert');
+    }
 }

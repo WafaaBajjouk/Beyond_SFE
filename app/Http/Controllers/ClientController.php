@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Alert;
 use Illuminate\Http\Request;
 
 use App\Client;
@@ -29,22 +30,28 @@ class ClientController extends Controller
             $client = new Client();
 
             $client->nom= $request->input('nom');
-            $client->prenom= $request->input('prenom');
+            // $client->prenom= $request->input('prenom');
             $client->poste= $request->input('poste');
             $client->email= $request->input('email');
             $client->telephone= $request->input('telephone');
             $client->entreprise= $request->input('entreprise');
+            $client->ville= $request->input('ville');
+            $client->addresse= $request->input('addresse');
 
             $client->save();
 
             return redirect('client');
     }
 
+
+
+
+
     // get client data & fill the edit form
     public function edit($id){
         $client = Client::find($id);
 
-        return view('client.edit', ['client' => $client]);
+        return view('client.editt', ['client' => $client]);
     }
 
     // update the client
@@ -52,11 +59,14 @@ class ClientController extends Controller
             $client = Client::find($id);
 
             $client->nom= $request->input('nom');
-            $client->prenom= $request->input('prenom');
+            // $client->prenom= $request->input('prenom');
             $client->poste= $request->input('poste');
+
             $client->email= $request->input('email');
             $client->telephone= $request->input('telephone');
             $client->entreprise= $request->input('entreprise');
+            $client->ville= $request->input('ville');
+            $client->addresse= $request->input('addresse');
 
             $client->save();
             return redirect('client');
@@ -73,4 +83,30 @@ class ClientController extends Controller
         return redirect('client');
 
     }
+
+    public function info($id){
+        $client = Client::find($id);
+
+        return view('client.info', ['client' => $client]);
+    }
+
+
+    public function getAlertByClient($id){
+
+        // //les alerts du client x
+        // $client = Client::find($id);
+        // // return  $alert = Alert::find($id);
+
+        // return dd($client->alerts);
+
+
+            //les client d alert x
+            $alert = Alert::find($id);
+            // return  $alert = Alert::find($id);
+
+            return dd($alert->client);
+    }
+
+
+
 }

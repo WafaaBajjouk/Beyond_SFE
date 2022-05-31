@@ -15,6 +15,12 @@
         <div class="card-header">
           <h4 class="card-title"> Liste des Alerts</h4>
         </div>
+
+        <div class="pull-right">
+            <a style="margin-right:10px;"   href="{{ url('clientAlert')}}" class="btn btn-success">Nouvelle alerte</a>
+
+
+        </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">

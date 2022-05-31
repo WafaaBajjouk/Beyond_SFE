@@ -15,6 +15,18 @@
         <div class="card-header">
           <h4 class="card-title">Liste des fichiers</h4>
         </div>
+
+
+        {{-- FUNICULÌ FUNICULÀ  --}}
+
+        <div class="pull-right">
+            <a style="margin-right:10px;"   href="{{ url('text/create')}}" class="btn btn-success">Charger un fichier </a>
+
+
+        </div>
+
+
+
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">

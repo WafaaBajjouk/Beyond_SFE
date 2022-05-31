@@ -19,15 +19,17 @@ use Faker\Generator as Faker;
 $factory->define(Client::class, function (Faker $faker) {
     return [
         'nom' => $faker->name,
-        'prenom' => $faker->name,
+        // 'prenom' => $faker->name,
 
         'email' => $faker->unique()->safeEmail,
         // 'email_verified_at' => now(),
-        'entreprise' => $faker->name,
-        'poste' => $faker->name,
-        'telephone' => Str::random(17),
+        'entreprise' => $faker->company,
+        'poste' => $faker->jobTitle,
+        'telephone' => $faker->phoneNumber,
+        'addresse' => $faker->address,
+        'ville' => $faker->city,
 
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
+        // 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        // 'remember_token' => Str::random(10),
     ];
 });

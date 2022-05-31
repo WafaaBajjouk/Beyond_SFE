@@ -77,6 +77,10 @@ class CsvFile extends Controller
         return back();
     }
 
+    public function theme(){
+        return view('theme.index' , compact('data'))
+        ->with('i',(request()->input('page',1)-1)*500);
+    }
 
     // public function findSearch()
     //                 {

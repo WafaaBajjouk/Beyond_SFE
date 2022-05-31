@@ -19,6 +19,7 @@ class CreateAlertTable extends Migration
             $table->integer('id_client');
             $table->string('client_name');
             $table->text('text');
+            $table->foreign('id_client')->references('id')->on('clients')->onDelete('cascade');
             $table->timestamps();
         });
     }
