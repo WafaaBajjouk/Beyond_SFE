@@ -36,11 +36,11 @@
                 <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
                     <div class="custom-file text-left">
                         <input type="file" name="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
+                        <label class="custom-file-label" for="customFile">Choisir le fichier</label>
                     </div>
                 </div>
-                <button class="btn btn-primary">Import data</button>
-                <a class="btn btn-success" href="{{ route('export') }}">Export data</a>
+                <button class="btn btn-primary">Importer des données</button>
+                <a class="btn btn-success" href="{{ route('export') }}">Exporter des données</a>
             </form>
         </div>
 
@@ -51,9 +51,9 @@
               <thead class=" text-primary">
                 <tr>
                     <th>N BO</th>
-                    <th>Titre</th>
-                    <th>Theme</th>
-                    <th>Sous Theme</th>
+                    <th>libelle </th>
+                    <th>Thème</th>
+                    <th>Sous-thème</th>
                     <th>fichier</th>
                     <th>Temps</th>
                     <th>Action</th>

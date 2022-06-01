@@ -18,26 +18,26 @@ class CsvImport implements ToModel ,WithHeadingRow
     public function model(array $row)
     {
 
- return new SousTheme([
-            // 'theme' => $row["theme"],
-            'titre' => $row["soustheme"],
-        ]);
+//  return new SousTheme([
+//             // 'theme' => $row["theme"],
+//             'titre' => $row["soustheme"],
+//         ]);
         // return new Theme([
         //     'theme' => $row["theme"],
         //     'soustheme' => $row["soustheme"],
         // ]);
-        // return new textReg([
-        //     'theme' => $row["theme"],
-        //     'soustheme' => $row["soustheme"],
-        //     'libellee' => $row["libellee"],
-        //     'nbo' => $row["nbo"],
-        //     'texte' => $row["texte"],
-        //     'fichedaudit' => $row["fichedaudit"],
-        //     'fichedelecture' => $row["fichedelecture"],
+        return new textReg([
+            'theme' => $row["theme"],
+            'soustheme' => $row["soustheme"],
+            'libellee' => $row["libellee"],
+            'nbo' => $row["nbo"],
+            'texte' => $row["texte"],
+            'fichedaudit' => $row["fichedaudit"],
+            'fichedelecture' => $row["fichedelecture"],
 
 
 
-        //     //
-        // ]);
+            //
+        ]);
     }
 }

@@ -13,14 +13,14 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> La liste des abonements</h4>
+          <h4 class="card-title">Situation des abonnements</h4>
         </div>
 
         <form action="{{ url('client/create')}}" method="POST">
-
+            <div class="pull-right">
         {{-- <button style="margin-left: 920px;margin-right:10px;"  type="submit" class="btn btn-success">Abonnee un noveau Client</button> --}}
-        <a style="margin-right:10px;"   href="{{ url('clientAbon')}}" class="btn btn-success">Nouvelle alerte</a>
-
+        <a style="margin-right:10px;"   href="{{ url('clientAbon')}}" class="btn btn-success">Nouvelle abonement</a>
+            </div>
         </form>
 
         <div class="card-body">
@@ -28,11 +28,11 @@
             <table class="table">
               <thead class=" text-primary">
                 <th>Id</th>
-                <th>Payee</th>
+                <th>Status</th>
                 {{-- <th>Prenom</th> --}}
-                <th>Montant</th>
+                <th>Montant en MAD</th>
                 <th>Date</th>
-                <th>Client</th>
+                <th>Ref du Client</th>
 
                 <th>Action</th>
 

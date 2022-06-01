@@ -84,15 +84,6 @@ Route::get('/GetAlert/{id}','ClientController@getAlertByClient');
 
 Route::get('/clientAlert' , 'AlertController@clientList');
 
-Route::get('/clientAbon' , 'AbonementController@clientList');
-
-Route::match(['get', 'post'], '/addabon/{id}', 'AbonementController@abonForm');
-
-Route::match(['get', 'post'], '/addabon/submit/{id}', 'AbonementController@addAbon');
-
-
-
-
 
 
 
@@ -189,6 +180,12 @@ Route::get('/abonement' , 'AbonementController@index');
 // Route::get('/alert/create' , 'AlertController@create');
 
 // Route::post('/alert' , 'AlertController@store');
+Route::get('/clientAbon' , 'AbonementController@clientList');
+
+Route::match(['get', 'post'], '/addabon/{id}', 'AbonementController@abonForm');
+
+Route::match(['get', 'post'], '/addabon/submit/{id}', 'AbonementController@addAbon');
+
 
 Route::get('/abonement/edit/{id}' , 'AbonementController@edit');
 

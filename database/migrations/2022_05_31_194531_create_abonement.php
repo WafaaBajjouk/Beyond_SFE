@@ -17,7 +17,7 @@ class CreateAbonement extends Migration
             $table->bigIncrements('id');
             $table->boolean('payed');
             $table->double('montant');
-            $table->date('date');
+            $table->timestamps('date');
             $table->integer('id_client');
             $table->timestamps();
         });

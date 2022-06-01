@@ -16,7 +16,7 @@
 
         <div class="card-body">
 
-            <form action="{{ url('client/'.$abon->id)}}" method="POST">
+            <form action="{{ url('/abonement/'.$abon->id)}}" method="POST">
                 <input type="hidden" name="_method" value="PUT">
 
 
@@ -26,8 +26,13 @@
                   {{ csrf_field()}}
 
                 <div class="form-group">
-                    <label for="">Payee</label>
-                    <input type="text"  name="paye" class="form-control" value="{{ $abon->payed}}">
+                   <label for="">Payee</label>
+                   {{--   <input type="text"  name="paye" class="form-control" value="{{ $abon->payed}}"> --}}
+                    <select  value="{{ $abon->payed}}" class="form-control" type="text"  name="payed" class="form-control">
+
+                        <option>True</option>
+                        <option>False</option>
+                      </select>
                 </div>
 {{--
                 <div class="form-group">
@@ -47,8 +52,8 @@
 
 
 
-                        <input type="submit" name="Modifier" class="btn btn-warning">
-                        <input type="reset" name="Annuler" class="btn btn-danger">
+                        <input type="submit" value="Modifier" class="btn btn-warning">
+                        <input type="reset" value="Annuler" class="btn btn-danger">
 
 
             </form>
