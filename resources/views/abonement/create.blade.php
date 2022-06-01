@@ -14,13 +14,13 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Envoyer une nouvelle alerte</h4>
+          <h4 class="card-title"> Abonne un client</h4>
         </div>
         <div class="card-body">
             {{-- @foreach ($client as $client) --}}
 
 
-            <form action="{{url('/addAlert/submit/'.$client->id)}}" method="POST">
+            <form action="{{url('/addabon/submit/'.$client->id)}}" method="POST">
                 {{-- <form action="{{ url('client')}}" method="POST"> --}}
                     {{-- <form action="{{ url('client')}}" method="POST"> --}}
 
@@ -30,13 +30,18 @@
                 {{ csrf_field()}}
 
               <div class="form-group">
-                  <label for="">Titre</label>
-                  <input type="text"  name="titre" class="form-control">
+                  <label for="">Payee</label>
+                  <select  class="form-control" type="text"  name="payed" class="form-control">
+
+                    <option>True</option>
+                    <option>False</option>
+                  </select>
+                  {{-- <input type="text"  name="titre" class="form-control"> --}}
               </div>
 
               <div class="form-group">
                   <label for="">Client</label>
-                  <input disabled="" name="client_name" value="{{ $client->nom}}" />
+                  <input disabled="" name="id_client" value="{{ $client->id}}" />
                   {{-- <select disabled=""  name="client_name">
   <option value="{{ $client->nom}}">{{ $client->nom}}</option>
 
@@ -46,9 +51,19 @@
               </div>
 
               <div class="form-group">
-                  <label for="">Text</label>
-                 <br> <textarea name="text"  class="form-control"  cols="40" rows="5"></textarea>
+                  <label for="">Nom du client</label>
+                 <br> <input type="text" class="form-control"  value="{{ $client->nom}}" cols="40" rows="5">
               </div>
+
+              <div class="form-group">
+                <label for="">Montant</label>
+               <br> <input type="text" name="montant"  class="form-control"  cols="40" rows="5">
+            </div>
+
+              <div class="form-group">
+                <label for="">Date</label>
+               <br> <input type="date" name="date"  class="form-control"  cols="40" rows="5">
+            </div>
 
 
 

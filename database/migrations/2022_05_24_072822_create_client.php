@@ -23,6 +23,8 @@ class CreateClient extends Migration
             $table->String('entreprise');
             $table->String('email');
             $table->String('telephone');
+            $table->String('ville');
+            $table->String('addresse');
             $table->timestamps();
         });
     }

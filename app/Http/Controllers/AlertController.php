@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Alert;
 use App\Client;
-use App\Mail\ContactMailable;
-use Illuminate\Support\Facades\Mail;
 
 class AlertController extends Controller
 {
@@ -14,10 +12,9 @@ class AlertController extends Controller
 
     public function index(){
         $alertList = Alert::all();
-        $clientList = Client::all();
 
 
-        return view('alert.index' , ['alert'=> $alertList] , ['client'=>$clientList]);
+        return view('alert.index' , ['alert'=> $alertList]);
 
     }
 
@@ -55,8 +52,10 @@ class AlertController extends Controller
 
     public function edit($id){
         $alert = Alert::find($id);
+        $clientList = Client::all();
 
-        return view('alert.edit', ['alert' => $alert]);
+
+        return view('alert.edit', ['alert' => $alert], ['clientList'=>$clientList]);
 
 
 
@@ -67,7 +66,9 @@ class AlertController extends Controller
 
 
         $alert->text=$request->input('text');
+        $alert->titre=$request->input('titre');
         $alert->client_name=$request->input('client_name');
+        // $alert->client_id=;
 
         $alert->save();
 
@@ -107,15 +108,6 @@ class AlertController extends Controller
 
         $client->alerts()->save($alert);
 
-        // $admindata = [
-        //     'fullname' => jjo$request->input('fullname'),
-        //     'phone' => $request->input('lastname'),
-        //     'email' => $request->input('email'),
-        //     'subject' => $request->input('subject'),
-        //     'message' => $request->input('message'),
-        // ];
-
-        // Mail::to($client->email)->send(new ContactMailable($admindata));
 
         return redirect('alert');
     }

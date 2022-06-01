@@ -16,7 +16,7 @@ class CreateAlertTable extends Migration
         Schema::create('alert', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->String('titre');
-            $table->integer('id_client');
+            $table->integer('client_id');
             $table->string('client_name');
             $table->text('text');
             $table->foreign('id_client')->references('id')->on('clients')->onDelete('cascade');

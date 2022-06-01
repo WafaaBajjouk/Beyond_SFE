@@ -17,4 +17,6 @@ class Alert extends Model
 
     }
 
+
+
 }

@@ -52,8 +52,8 @@
 
                             {{ method_field('DELETE')}}
 
-                            <a href="{{url('addAlert/'.$client->id)}}" class="btn btn-primary">Alerter</a><br><br>
-                            <a href="{{url('clientInfo/'.$client->id)}}" class="btn btn-default">details</a><br><br>
+                            <a href="{{url('addabon/'.$client->id)}}" class="btn btn-primary">Abonne</a><br><br>
+                            {{-- <a href="{{url('clientInfo/'.$client->id)}}" class="btn btn-default">details</a><br><br> --}}
 
                         </form>
 

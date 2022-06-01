@@ -50,13 +50,16 @@ class ClientController extends Controller
     // get client data & fill the edit form
     public function edit($id){
         $client = Client::find($id);
+        $clientList = Client::all();
 
-        return view('client.editt', ['client' => $client]);
+
+        return view('edit', ['client' => $client] , ['clientlist' => $clientList]);
     }
 
     // update the client
     public function update($id ,Request $request){
             $client = Client::find($id);
+
 
             $client->nom= $request->input('nom');
             // $client->prenom= $request->input('prenom');

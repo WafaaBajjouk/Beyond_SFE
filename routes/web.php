@@ -74,14 +74,23 @@ Route::get('/clientInfo/{id}','ClientController@info');
 
 // Route::get('/addAlert/{id}','ClientController@addAlert');
 
-Route::get('/addAlert/client/{id}' , 'AlertController@alertForm');
+// Route::get('/addAlert/{id}' , 'AlertController@alertForm');
+Route::match(['get', 'post'], '/addAlert/{id}', 'AlertController@alertForm');
+
+Route::match(['get', 'post'], '/addAlert/submit/{id}', 'AlertController@addAlert');
 
 
 Route::get('/GetAlert/{id}','ClientController@getAlertByClient');
 
 Route::get('/clientAlert' , 'AlertController@clientList');
 
-Route::post('/addAlert/{id}','AlertController@addAlert');
+Route::get('/clientAbon' , 'AbonementController@clientList');
+
+Route::match(['get', 'post'], '/addabon/{id}', 'AbonementController@abonForm');
+
+Route::match(['get', 'post'], '/addabon/submit/{id}', 'AbonementController@addAbon');
+
+
 
 
 
@@ -164,15 +173,28 @@ Route::get('/themes' , function () {
 
 Route::get('/alert' , 'AlertController@index');
 
-Route::get('/alert/create' , 'AlertController@create');
+// Route::get('/alert/create' , 'AlertController@create');
 
-Route::post('/alert' , 'AlertController@store');
+// Route::post('/alert' , 'AlertController@store');
 
 Route::get('/alert/{id}/edit' , 'AlertController@edit');
 
 Route::put('/alert/{id}','AlertController@update');
 
 Route::delete('/alert/{id}','AlertController@destroy');
+
+
+Route::get('/abonement' , 'AbonementController@index');
+
+// Route::get('/alert/create' , 'AlertController@create');
+
+// Route::post('/alert' , 'AlertController@store');
+
+Route::get('/abonement/edit/{id}' , 'AbonementController@edit');
+
+Route::put('/abonement/{id}','AbonementController@update');
+
+Route::delete('/abonement/{id}','AbonementController@destroy');
 
 
 Route::get('/user' , 'UserController@index');
