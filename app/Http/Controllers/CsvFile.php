@@ -82,6 +82,14 @@ class CsvFile extends Controller
         ->with('i',(request()->input('page',1)-1)*500);
     }
 
+    public function destroy(Request $request , $Id_text){
+
+        $text = textReg::find($Id_text);
+        $text->delete();
+
+        return Redirect('csv_file');
+    }
+
     // public function findSearch()
     //                 {
 

@@ -13,9 +13,8 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> La liste des clients</h4>
+          <h4 class="card-title">     <i class="now-ui-icons shopping_credit-card"></i> La liste des clients</h4>
         </div>
-
 
         <div class="card-body">
           <div class="table-responsive">
@@ -52,7 +51,8 @@
 
                             {{ method_field('DELETE')}}
 
-                            <a href="{{url('addabon/'.$client->id)}}" class="btn btn-primary">Abonne</a><br><br>
+                            <a href="{{url('addabon/'.$client->id)}}" class="btn btn-primary">        <i class="now-ui-icons shopping_credit-card"></i>
+                                Abonne</a><br><br>
                             {{-- <a href="{{url('clientInfo/'.$client->id)}}" class="btn btn-default">details</a><br><br> --}}
 
                         </form>

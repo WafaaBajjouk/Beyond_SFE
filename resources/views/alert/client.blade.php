@@ -13,7 +13,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> La liste des clients</h4>
+          <h4 class="card-title">    <i class="now-ui-icons ui-1_bell-53"></i>La liste des clients</h4>
         </div>
 
 
@@ -52,8 +52,8 @@
 
                             {{ method_field('DELETE')}}
 
-                            <a href="{{url('addAlert/'.$client->id)}}" class="btn btn-primary">Alerter</a><br><br>
-                            <a href="{{url('clientInfo/'.$client->id)}}" class="btn btn-default">details</a><br><br>
+                            <a href="{{url('addAlert/'.$client->id)}}" class="btn btn-primary"> <i class="now-ui-icons ui-1_send"></i>Alerter</a><br><br>
+                            <a href="{{url('clientInfo/'.$client->id)}}" class="btn btn-default"><i class="now-ui-icons travel_info"></i>details</a><br><br>
 
                         </form>
 

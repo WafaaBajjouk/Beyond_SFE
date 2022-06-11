@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('auth.admin-login');
 });
 
 // // premier param : nom de la route
@@ -83,8 +83,11 @@ Route::match(['get', 'post'], '/addAlert/submit/{id}', 'AlertController@addAlert
 Route::get('/GetAlert/{id}','ClientController@getAlertByClient');
 
 Route::get('/clientAlert' , 'AlertController@clientList');
+Route::get('/clientreg' , 'ReglementationController@clientList');
 
+Route::match(['get', 'post'], '/addreg/{id}', 'ReglementationController@regForm');
 
+Route::match(['get', 'post'], '/addreg/submit/{id}', 'ReglementationController@addreg');
 
 
 Route::any('/client/search',function(){
@@ -111,6 +114,7 @@ Route::post('/text/create' , 'TextController@store');
 
 // Route::delete('/text/{id}','TextController@destroy');
 Route::match(['get', 'delete'], '/text/{id}', 'TextController@destroy');
+Route::match(['get', 'delete'], '/textreg/{id}', 'CsvFile@destroy');
 
 
 
@@ -156,11 +160,20 @@ Route::any('/csv_file/search',function(){
 // Route::get('/')
 // gestion des alerts
 
-Route::get('/themes' , function () {
-	$data = textReg::distinct()->get();
-    // $data=$data->distinct()->get(['soustheme']);
-    return view('theme.index')->withData($data);
-});
+// Route::get('/themes' , function () {
+// 	$data = DB::table('textReg')
+//             ->select('theme', 'soustheme')
+//             ->groupBy('theme')
+//             ->get();
+//     // $data=$data->distinct()->get(['soustheme']);
+//     return view('theme.index')->withData($data);
+// });
+
+Route::get('/themes' , 'themeController@index');
+Route::get('/theme/create' , 'themeController@create');
+
+Route::post('/theme/create' , 'themeController@store')->name('theme.create');
+
 
 Route::get('/alert' , 'AlertController@index');
 
@@ -171,6 +184,11 @@ Route::get('/alert' , 'AlertController@index');
 Route::get('/alert/{id}/edit' , 'AlertController@edit');
 
 Route::put('/alert/{id}','AlertController@update');
+Route::get('/editreg/{id}' , 'ReglementationController@edit');
+
+Route::put('/edit/{id}','ReglementationController@update');
+
+
 
 Route::delete('/alert/{id}','AlertController@destroy');
 
@@ -203,3 +221,8 @@ Route::put('/user/{id}','UserController@update');
 Route::delete('/user/{id}','UserController@destroy');
 
 Route::match(['get', 'put'], '/user/{id}/edit', 'UserController@edit');
+
+Route::get('chart', 'ChartContoller@index')->name('chart');
+
+
+Route::get('/reglementation' , 'ReglementationController@index');

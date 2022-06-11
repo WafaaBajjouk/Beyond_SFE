@@ -14,7 +14,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Envoyer une nouvelle alerte</h4>
+          <h4 class="card-title">    <i class="now-ui-icons ui-1_bell-53"></i> Envoyer une nouvelle alerte</h4>
         </div>
         <div class="card-body">
             {{-- @foreach ($client as $client) --}}

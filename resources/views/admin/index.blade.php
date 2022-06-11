@@ -1,20 +1,28 @@
 @extends('layouts.master')
 
-@section('title')
-
-    Admin Dashboard
-
-
-@endsection
-
-
 @section('content')
+<div class="row">
+  <div class="col-md-12" >
+    <div class="card" >
+      <div class="card-body">
 
 
-@endsection
+        <div >Analyse des clients</div>
 
+        <div >
+          {!! $chart->html() !!}
+        </div>
+        <div >Analyse des textes</div>
 
-
-@section('scripts')
-
+        <div >
+            {!! $texts->html() !!}
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+{!! Charts::scripts() !!}
+{!! $chart->script() !!}
+{!! Charts::scripts() !!}
+{!! $texts->script() !!}
 @endsection

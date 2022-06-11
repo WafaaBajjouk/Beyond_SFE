@@ -6,7 +6,10 @@
 <div class="row">
     <div class="col-md-12">
       <div class="card">
-
+        <div class="card-header">
+            <h4 class="card-title">
+                <i class="now-ui-icons users_single-02"> </i> Modification du client : {{ $client->nom}}</h4>
+          </div>
         <div class="card-body">
 
 

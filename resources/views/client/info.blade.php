@@ -16,8 +16,8 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">
-          <h5 class="title">Client details</h5>
-        </div>
+            <h4 class="card-title"><i class="now-ui-icons users_single-02"> </i> détail du client : {{ $client->nom}}</h4>
+          </div>
         <div class="card-body">
           <form>
             <div class="row">
@@ -58,7 +58,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Address</label>
-                  <input type="text" class="form-control" value="{{ $client->addresse}}" disabled="" >
+                  <input type="text" class="form-control"disabled="" value="{{ $client->addresse}}"  >
                 </div>
               </div>
             </div>

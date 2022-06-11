@@ -14,7 +14,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Abonne un client</h4>
+          <h4 class="card-title">     <i class="now-ui-icons shopping_credit-card"></i> Abonne un client</h4>
         </div>
         <div class="card-body">
             {{-- @foreach ($client as $client) --}}

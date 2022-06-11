@@ -13,6 +13,9 @@
 <div class="row">
     <div class="col-md-12">
       <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">     <i class="now-ui-icons shopping_credit-card"></i> Modification d'abonnement du client : {{ $abon->id_client }}</h4>
+          </div>
 
         <div class="card-body">
 

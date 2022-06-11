@@ -13,13 +13,13 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Situation des abonnements</h4>
+          <h4 class="card-title">     <i class="now-ui-icons shopping_credit-card"></i> Situation des abonnements</h4>
         </div>
 
         <form action="{{ url('client/create')}}" method="POST">
             <div class="pull-right">
-        {{-- <button style="margin-left: 920px;margin-right:10px;"  type="submit" class="btn btn-success">Abonnee un noveau Client</button> --}}
-        <a style="margin-right:10px;"   href="{{ url('clientAbon')}}" class="btn btn-success">Nouvelle abonement</a>
+        <a style="margin-right:10px;"   href="{{ url('clientAbon')}}" class="btn btn-success"> <i class="now-ui-icons ui-1_simple-add"></i>
+            Nouveau abonnement</a>
             </div>
         </form>
 
@@ -56,10 +56,11 @@
 
                             {{ method_field('DELETE')}}
 
-                            <a href="{{url('abonement/edit/'.$abon->id)}}" class="btn btn-primary">Modifier</a><br><br>
-                            <a href="{{url('clientInfo/'.$abon->id_client)}}" class="btn btn-default">Client</a><br><br>
+                            <a href="{{url('abonement/edit/'.$abon->id)}}" class="btn btn-primary">                            <i class="now-ui-icons design-2_ruler-pencil"></i>
+                                Modifier</a><br><br>
+                            <a href="{{url('clientInfo/'.$abon->id_client)}}" class="btn btn-default"><i class="now-ui-icons travel_info"></i>Client</a><br><br>
 
-                            <button type="submit" class="btn btn-danger">Supprimmer</button>
+                            <button type="submit" class="btn btn-danger"><i class="now-ui-icons ui-1_simple-delete"></i>Supprimmer</button>
 
                         </form>
 

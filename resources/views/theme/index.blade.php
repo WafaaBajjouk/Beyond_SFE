@@ -31,19 +31,19 @@
 
               </thead>
               <tbody>
-                @foreach ($data as $data)
+                @foreach ($theme as $theme)
                 <tr>
                     {{-- <td>{{ $text->id}}</td> --}}
                     {{-- <td>{{ $text->titre}}</td> --}}
                     {{-- <td>{{ $data->id}}</td> --}}
                     {{-- <td>{{ $data->libellee}}</td> --}}
-                    <td>{{ $data->theme}}</td>
-                    <td>{{ $data->soustheme}}</td>
+                    <td>{{ $theme->theme}}</td>
+                    <td>{{ $theme->soustheme}}</td>
                     {{-- <td>{{ $data->texte}}</td> --}}
                     {{-- <td>{{ $data->created_at}}</td> --}}
 
                     <td>
-                        <form action="{{ url('text/'.$data->id)}}" method="POST">
+                        <form action="{{ url('text/'.$theme->id)}}" method="POST">
                             {{ csrf_field() }}
 
                             {{ method_field('DELETE')}}

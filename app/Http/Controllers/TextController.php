@@ -13,7 +13,7 @@ class TextController extends Controller
     //
 
     public function index()
-    
+
     {
 
         $textList = text::all();
@@ -25,33 +25,33 @@ class TextController extends Controller
             // we call the form view
             return view('text.create' );
         }
-    
+
         // save a new text = persistance
         public function store(request $request){
-                $text = new text();
-    
-                $text->Theme= $request->input('theme');
-                $text->Sous_Theme= $request->input('stheme');
+            $text = new text();
 
-            //    store excel file 
+            $text->Theme= $request->input('theme');
+            $text->Sous_Theme= $request->input('stheme');
 
-               if($request->hasFile('file')){
+        //    store excel file
 
-                
-                $filename= $request->file->getClientOriginalName();
-                
-                $text->file = $request->file->store('public/files');
+           if($request->hasFile('file')){
 
-                $text->titre= $filename;
 
-                $text->save();
-                
+            $filename= $request->file->getClientOriginalName();
 
-                // after the upload we get the path;
-               }
+            $text->file = $request->file->store('public/storage');
 
-    
-               return  redirect('text');
+            $text->titre= $filename;
+
+            $text->save();
+
+
+            // after the upload we get the path;
+           }
+
+
+           return  redirect('text');
               }
     public function destroy(Request $request , $Id_text){
 

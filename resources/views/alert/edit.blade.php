@@ -13,7 +13,9 @@
 <div class="row">
     <div class="col-md-12">
       <div class="card">
-
+        <div class="card-header">
+            <h4 class="card-title">   <i class="now-ui-icons ui-1_bell-53"></i> Modification d'Alert Ref : {{ $alert->id}}</h4>
+          </div>
         <div class="card-body">
 
             <form action="{{ url('alert/'.$alert->id)}}" method="POST">

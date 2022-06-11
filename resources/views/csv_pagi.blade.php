@@ -13,7 +13,8 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Les textes règlementaires</h4>
+          <h4 class="card-title" >               <i class="now-ui-icons arrows-1_cloud-upload-94"></i>
+             Les textes règlementaires</h4>
         </div>
 
         {{-- <form action="{{ url('client/create')}}" method="POST">
@@ -39,8 +40,9 @@
                         <label class="custom-file-label" for="customFile">Choisir le fichier</label>
                     </div>
                 </div>
-                <button class="btn btn-primary">Importer des données</button>
-                <a class="btn btn-success" href="{{ route('export') }}">Exporter des données</a>
+                <button class="btn btn-primary"><i class="now-ui-icons arrows-1_cloud-upload-94"></i>Importer des données</button>
+                <a class="btn btn-success" href="{{ route('export') }}"> <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                    Exporter des données</a>
             </form>
         </div>
 
@@ -55,7 +57,7 @@
                     <th>Thème</th>
                     <th>Sous-thème</th>
                     <th>fichier</th>
-                    <th>Temps</th>
+                    {{-- <th>Temps</th> --}}
                     <th>Action</th>
 
                 </tr>
@@ -71,19 +73,19 @@
                     <td>{{ $data->theme}}</td>
                     <td>{{ $data->soustheme}}</td>
                     <td>{{ $data->texte}}</td>
-                    <td>{{ $data->created_at}}</td>
+                    {{-- <td>{{ $data->created_at}}</td> --}}
 
 
                     <td>
 
-                        <form action="{{ url('text/'.$data->id)}}" method="POST">
+                        <form action="{{ url('textreg/'.$data->id)}}" method="POST">
                             {{ csrf_field() }}
 
                             {{ method_field('DELETE')}}
 
 
-                            <button type="submit" class="btn btn-danger">Supprimmer</button> <br><br>
-                            <button type="submit" class="btn btn-primary">Telecharger</button>
+                            <button type="submit" class="btn btn-danger"> <i class="now-ui-icons ui-1_simple-delete"></i>Supprimmer</button> <br><br>
+                            {{-- <button type="submit" class="btn btn-primary">Telecharger</button> --}}
 
 
                         </form>

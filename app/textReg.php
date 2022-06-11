@@ -8,6 +8,7 @@ class textReg extends Model
 {
 
     protected $fillable = [
+        'id',
         'soustheme',
 
         'theme',

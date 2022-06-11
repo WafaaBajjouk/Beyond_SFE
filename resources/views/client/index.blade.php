@@ -13,7 +13,8 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> La liste des clients</h4>
+            <h4 class="card-title">
+                <i class="now-ui-icons users_single-02"> </i> liste des clients</h4>
         </div>
 
         {{-- <form action="{{ url('client/create')}}" method="POST">
@@ -23,7 +24,8 @@
         </form> --}}
 
         <div class="pull-right">
-            <a style="margin-right:10px;"   href="{{ url('client/create')}}" class="btn btn-success">Nouveau Client</a>
+            <a style="margin-right:10px;"   href="{{ url('client/create')}}" class="btn btn-success">                             <i class="now-ui-icons ui-1_simple-add"></i>
+                Nouveau Client</a>
 
 
         </div>
@@ -31,7 +33,7 @@
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
-                <th>Id</th>
+                <th>Ref</th>
                 <th>Nom</th>
                 {{-- <th>Prenom</th> --}}
                 <th>Email</th>
@@ -63,12 +65,11 @@
                             {{ method_field('DELETE')}}
 
                             <a href="{{url('client/edit/'.$client->id)}}" class="btn btn-primary">Modifier</a><br><br>
-                            <a href="{{url('clientInfo/'.$client->id)}}" class="btn btn-default">details</a><br><br>
+                            <a href="{{url('clientInfo/'.$client->id)}}" class="btn btn-default"><i class="now-ui-icons travel_info"></i>details</a><br><br>
 
-                            <button type="submit" class="btn btn-danger">Supprimmer</button>
+                            <button type="submit" class="btn btn-danger"><i class="now-ui-icons ui-1_simple-delete"></i>Supprimmer</button>
 
                         </form>
-
                     </td>
 
 

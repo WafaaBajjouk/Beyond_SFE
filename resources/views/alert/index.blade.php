@@ -13,11 +13,12 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Liste des Alerts</h4>
+          <h4 class="card-title">   <i class="now-ui-icons ui-1_bell-53"></i> Liste des Alerts</h4>
         </div>
 
         <div class="pull-right">
-            <a style="margin-right:10px;"   href="{{ url('clientAlert')}}" class="btn btn-success">Nouvelle alerte</a>
+            <a style="margin-right:10px;"   href="{{ url('clientAlert')}}" class="btn btn-success">                             <i class="now-ui-icons ui-1_simple-add"></i>
+                 Nouvelle alerte</a>
 
 
         </div>
@@ -25,7 +26,7 @@
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
-                <th>Id</th>
+                <th>Ref</th>
                 <th>Titre</th>
                 {{-- <th>Client Id</th> --}}
                 <th>Client </th>
@@ -52,9 +53,9 @@
                             {{ method_field('DELETE')}}
 
                             {{-- <a href="" class="btn btn-primary">Afficher</a> --}}
-                            <a href="{{url('alert/'.$alert->id.'/edit')}}" class="btn btn-primary">Modifier</a><br>
+                            <a href="{{url('alert/'.$alert->id.'/edit')}}" class="btn btn-primary"><i class="now-ui-icons design-2_ruler-pencil"></i>Modifier</a><br>
 
-                            <br><button type="submit" class="btn btn-danger">Supprimmer</button>
+                            <br><button type="submit" class="btn btn-danger"><i class="now-ui-icons ui-1_simple-delete"></i>Supprimmer</button>
 
                         </form>
 
